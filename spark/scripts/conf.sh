@@ -15,17 +15,17 @@
 # Dataset size "small" and "large"
 DATA_SIZE=large
 # JAVA Home
-MY_JAVA_HOME="/spare/kolokasis/dev/teraheap/jdk17u067/build/linux-x86_64-server-release/jdk"
+MY_JAVA_HOME="/spare/thodp/teraheap/jdk17u067/build/linux-x86_64-server-release/jdk"
 #MY_JAVA_HOME="/opt/carvguest/asplos23_ae/teraheap/jdk17u067/build/linux-x86_64-server-release/jdk"
 #MY_JAVA_HOME="/spare/kolokasis/nativeJVM/jdk17u/build/linux-x86_64-server-release/jdk"
 # Directory that contains datasets
-DATA_HDFS="file:///mnt/datasets/SparkBench"
+DATA_HDFS="file:///spare/thodp/SparkBench"
 # Spark Version
 SPARK_VERSION=3.3.0
 # Number of partitions
 NUM_OF_PARTITIONS=256
 # Benchmark repo
-BENCH_DIR=/opt/carvguest/asplos23_ae/tera_applications
+BENCH_DIR=/spare/thodp/tera_applications
 # Spark directory
 SPARK_DIR=${BENCH_DIR}/spark/spark-${SPARK_VERSION}
 # Spark master log dir
@@ -33,19 +33,19 @@ MASTER_LOG_DIR=${SPARK_DIR}/logs
 # Spark master log dir
 MASTER_METRIC_FILE="${SPARK_DIR}/conf/metrics.properties"
 # Spark master node
-SPARK_MASTER=sith4-fast
+SPARK_MASTER=sith7-fast
 # Spark slave host name
-SPARK_SLAVE=sith4-fast
+SPARK_SLAVE=sith7-fast
 # Number of garbage collection threads
 GC_THREADS=8
 # Device for shuffle
-DEV_SHFL=md1
+DEV_SHFL=nbd0
 # Mount point for shuffle directory
-MNT_SHFL=/mnt/spark
+MNT_SHFL=/mnt/fnbd
 # Device for H2
-DEV_H2=nvme1n1
+DEV_H2=nbd0
 # Mount point for H2 TeraHeap directory
-MNT_H2=/mnt/fmap
+MNT_H2=/mnt/fnbd
 # Card segment size for H2
 CARD_SIZE=$((8 * 1024))
 # Region size for H2
@@ -53,7 +53,7 @@ REGION_SIZE=$((256 * 1024 * 1024))
 # Stripe size for H2
 STRIPE_SIZE=$(( REGION_SIZE / CARD_SIZE ))
 # TeraCache file size in GB e.g 800 -> 800GB
-H2_FILE_SZ=700
+H2_FILE_SZ=900
 # Executor cores
 EXEC_CORES=( 8 )
 # SparkBench directory
@@ -61,11 +61,11 @@ SPARK_BENCH_DIR=${BENCH_DIR}/spark/spark-bench
 #Benchmark log
 BENCH_LOG=${BENCH_DIR}/spark/scripts/log.out
 # Heap size for executors '-Xms' is in GB e.g., 54 -> 54GB
-H1_SIZE=( 12 )
+H1_SIZE=( 64 )
 # cgset accepts K,M,G and eiB, MiB, GiB units for memory limit
-MEM_BUDGET=32G
+MEM_BUDGET=80G
 # Spark memory fraction: 'spark.memory.storagefraction'
-MEM_FRACTION=( 0.9 )
+MEM_FRACTION=( 0.5 )
 # Storage Level
 S_LEVEL=( "MEMORY_ONLY" )
 # TeraCache configuration size in Spark: 'spark.teracache.heap.size'
@@ -73,7 +73,7 @@ H1_H2_SIZE=( 1200 )
 # Running benchmarks
 BENCHMARKS=( "PageRank" )
 # Number of executors
-NUM_EXECUTORS=( 2 )
+NUM_EXECUTORS=( 1 )
 # Total Configurations
 TOTAL_CONFS=${#H1_SIZE[@]}
 # Enable statistics

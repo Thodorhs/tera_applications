@@ -21,7 +21,7 @@ set -x
 #   Create a cgroup
 setup_cgroup() {
 	# Change user/group IDs to your own
-	sudo cgcreate -a kolokasis:carvsudo -t kolokasis:carvsudo -g memory:memlim
+	cgcreate -a thodp:carvsudo -t thodp:carvsudo -g memory:memlim
 	cgset -r memory.limit_in_bytes="$MEM_BUDGET" memlim
 }
 
@@ -29,7 +29,7 @@ setup_cgroup() {
 # Description:
 #   Delete a cgroup
 delete_cgroup() {
-	sudo cgdelete memory:memlim
+	cgdelete memory:memlim
 }
 
 run_cgexec() {
