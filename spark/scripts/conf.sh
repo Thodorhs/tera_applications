@@ -19,7 +19,7 @@ MY_JAVA_HOME="/spare/thodp/teraheap/jdk17u067/build/linux-x86_64-server-release/
 #MY_JAVA_HOME="/opt/carvguest/asplos23_ae/teraheap/jdk17u067/build/linux-x86_64-server-release/jdk"
 #MY_JAVA_HOME="/spare/kolokasis/nativeJVM/jdk17u/build/linux-x86_64-server-release/jdk"
 # Directory that contains datasets
-DATA_HDFS="file:///spare/thodp/SparkBench"
+DATA_HDFS="file:///mnt/shuffle/SparkBench"
 # Spark Version
 SPARK_VERSION=3.3.0
 # Number of partitions
@@ -71,7 +71,7 @@ S_LEVEL=( "MEMORY_ONLY" )
 # TeraCache configuration size in Spark: 'spark.teracache.heap.size'
 H1_H2_SIZE=( 1200 )
 # Running benchmarks
-BENCHMARKS=( "LinearRegression" )
+BENCHMARKS=( "PageRank" )
 # Number of executors
 NUM_EXECUTORS=( 1 )
 # Total Configurations

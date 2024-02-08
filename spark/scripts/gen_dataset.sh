@@ -21,7 +21,7 @@ set -x
 #   Create a cgroup
 setup_cgroup() {
 	# Change user/group IDs to your own
-	cgcreate -a thodp:carvsudo -t thodp:carvsudo -g memory:memlim
+	#cgcreate -a thodp:carvsudo -t thodp:carvsudo -g memory:memlim
 	cgset -r memory.limit_in_bytes="$MEM_BUDGET" memlim
 }
 
@@ -68,4 +68,4 @@ run_cgexec "${SPARK_BENCH_DIR}"/"${BENCHMARKS}"/bin/gen_data.sh >> "${BENCH_LOG}
 
 stop_spark
 
-delete_cgroup
+#delete_cgroup
