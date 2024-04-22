@@ -33,17 +33,17 @@ MASTER_LOG_DIR=${SPARK_DIR}/logs
 # Spark master log dir
 MASTER_METRIC_FILE="${SPARK_DIR}/conf/metrics.properties"
 # Spark master node
-SPARK_MASTER=sith6-fast
+SPARK_MASTER=sith2-fast
 # Spark slave host name
-SPARK_SLAVE=sith6-fast
+SPARK_SLAVE=sith2-fast
 # Number of garbage collection threads
 GC_THREADS=8
 # Device for shuffle
-DEV_SHFL=nvme3n1
+DEV_SHFL=nvme0n1
 # Mount point for shuffle directory
 MNT_SHFL=/mnt/shuffle
 # Device for H2
-DEV_H2=nvme0n1
+DEV_H2=nvme1n1
 # Mount point for H2 TeraHeap directory
 MNT_H2=/mnt/fmap
 # Card segment size for H2
@@ -60,10 +60,10 @@ EXEC_CORES=( 8 )
 SPARK_BENCH_DIR=${BENCH_DIR}/spark/spark-bench
 #Benchmark log
 BENCH_LOG=${BENCH_DIR}/spark/scripts/log.out
-# Heap size for executors '-Xms' is in GB e.g., 54 -> 54GB
-H1_SIZE=( 64 )
-# cgset accepts K,M,G and eiB, MiB, GiB units for memory limit
-MEM_BUDGET=80G
+# Heap size for executors '-Xms' is in GB e.g., 54 -> 54GB put 64
+H1_SIZE=( 130 )
+# cgset accepts K,M,G and eiB, MiB, GiB units for memory limit put 80G
+MEM_BUDGET=130G
 # Spark memory fraction: 'spark.memory.storagefraction'
 MEM_FRACTION=( 0.5 )
 # Storage Level

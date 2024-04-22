@@ -61,7 +61,7 @@ build_async_profiler() {
 #   Create a cgroup
 setup_cgroup() {
 	# Change user/group IDs to your own
-	#sudo cgcreate -a kolokasis:carvsudo -t kolokasis:carvsudo -g memory:memlim
+	sudo cgcreate -a thodp:carvsudo -t thodp:carvsudo -g memory:memlim
 	cgset -r memory.limit_in_bytes="$MEM_BUDGET" memlim
   	#sudo cgset -r memory.numa_stat=0 memlim
 }
@@ -70,7 +70,7 @@ setup_cgroup() {
 # Description:
 #   Delete a cgroup
 delete_cgroup() {
-	cgdelete memory:memlim
+	sudo cgdelete memory:memlim
 }
 
 run_cgexec() {
